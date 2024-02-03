@@ -1,0 +1,74 @@
+<script>
+    //Promises (PWD 2023)
+
+//JavaScript မှာ အဲ့ဒီလို မကြေစာင့် ဲ ကြေနာက်မှလုပ်ကြေစချင်တဲ့ အလုပ်ကြေတွရှိတဲ့
+//  Callback ‌ေတွကို အသုံးများကပါတယ်။ အခုကြေနာက်ပိုင်းမှာကြေတာ့ Callback အစား Promise လို ့ကြေခါ်တဲ့
+//  နည်းပညာကို အစားထိုးပြပီး သုံးလာကြပါတယ်။
+
+function add1000(){
+    let result = 0
+
+    for(let i = 0; i <= 1000;i++){
+        result +=i;
+    }
+
+    return result
+}
+
+// console.log('some process');
+// console.log(add1000());
+// console.log('more process')
+
+// output
+// some process
+// 500500
+// more process
+
+// အစီစဉ်တိုင်းအလုပ်လုပ်သွား
+
+function add1000later(){
+    return new Promise (done =>{
+        done(add1000())
+    })
+};
+
+// console.log('some process');
+// console.log(add1000later().then(result => console.log(result)));
+// console.log('more process')
+
+// some process
+// Promise[[Prototype]]: Promisecatch: ƒ catch()constructor: ƒ Promise()all: ƒ all()allSettled: ƒ allSettled()any: ƒ any()length: 1name: "Promise"prototype: Promise {Symbol(Symbol.toStringTag): 'Promise', constructor: ƒ, then: ƒ, catch: ƒ, finally: ƒ}race: ƒ race()reject: ƒ reject()resolve: ƒ resolve()withResolvers: ƒ withResolvers()Symbol(Symbol.species): ƒ Promise()Symbol(Symbol.species): ƒ Promise()arguments: (...)caller: (...)[[Prototype]]: ƒ ()[[Scopes]]: Scopes[0]finally: ƒ finally()then: ƒ then()Symbol(Symbol.toStringTag): "Promise"[[Prototype]]: Object[[PromiseState]]: "fulfilled"[[PromiseResult]]: undefined
+// more process
+// 500500
+
+//done is example; done နေရာမှာ resolve လို့သုံးလေ့ရှိ
+
+// Asynchronous ကြေခါ် ပြပိုင်တူအလုပ်လုပ်နိုင်ကြေသာ၊ တစ်ခုပြပီးကြေအာင်တစ်ခု ကြေစာင့်စရာ မ
+//  လိုကြေသာ ကုဒ်ကြေတွကို JavaScript မှာ ကြေရးလို့ရပါတယ်
+
+function add1000later() {
+    return new Promise( (resolve, reject) => {
+    let result = add1000()
+    if(result) resolve(result)
+    else reject()
+ })
+ }
+
+ add1000later()
+    .then( result => console.log(result) )
+    .catch( () => console.log("Error") )
+
+    //  add1000() Function ကမှန်လို ့ ရလဒ်ပန်ကြေပးနိုင်တဲ့အခါ resolve() ကို အလုပ်လုပ်ပြပီး မှားကြေနလို့
+//  ရလဒ်ပန်မရတဲ့အခါ reject() ကိုအလုပ်လုပ်ထားပါတယ်။
+
+// ကြေခါ်သးတဲ့အခါ then() Method နဲ့
+//  resolve() ကိုကြေပးနိုင်ပြပီး catch() Method နဲ့ reject() ကို ကြေပးနိုင်ပါတယ
+
+    add1000later()
+    .then( result => result + 1000)
+    .then( result => console.log(result) )
+    .catch( () => console.log("Error") )
+
+//     then() Method က ရလဒ်ကို return ပန်ကြေပးထားလို့ အဲ့ဒီလို ပန်ကြေပးတဲ့ရလဒ်ကို ကြေနာက်ထပ်
+//  then() Method နဲ့ မ်းပြပီး ဆက်အလုပ်လုပ်လို့ ရကြေနတာပါ။ 
+</script>
