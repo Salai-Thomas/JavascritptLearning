@@ -1,0 +1,15 @@
+JavaScript [PWD 196 & 197]
+
+Interpreted Language တစ်မျိုး၊ Script Language တစ်မျိုး ဖြစ်ပါတယ်။
+Client Side Language တစ်မျိုးဖြစ်တယ်။
+Web Browser တွေ ကိုယ်တိုင်က JavaScript ကုဒ်တွေကို တိုက်ရိုက်ဘာသာပြန်ပေးနိုင်တဲ့ Interpreter
+တွေဖြစ်နေတာပါ။
+
+ browser နဲ့ run နိုင်သလို node install ပြီးလည်း run နိုင်
+
+ command
+ node fileName.js <or> node fileName
+
+
+ Java ဟာ Statically Typed သဘောသဘာဝ ရှိပြီး JavaScript
+ကတော့ Loosely Typed သဘောသဘာဝရှိပါတယ်။
